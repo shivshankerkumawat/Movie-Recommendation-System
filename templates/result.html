@@ -1,0 +1,251 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(30, 30, 30); /* Dark background for body */
+            color: #f2f4f7; /* Light text color */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+        .background-image {
+            position: fixed; /* Fix background image */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQU247dqn9_X42p8rRBMYptceaWn9a9QaHR6roilhJtBnHhLQ09XrwDEc8Rt7kGWAis-JnxyqMbgJ__8FPsmSSOmF8eSFNY-QUgQS9su_JWkaR6oTiNSQ9JhZEr252l5CjvCldpIDDdUmQWA4T_IzgZj6WQw.jpg?r=46a');
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            opacity: 0.2; /* Translucent background */
+            z-index: 0; /* Ensure it's behind the content */
+        }
+        .container {
+            position: relative; /* Position relative for the container */
+            z-index: 1; /* Ensure it's above the overlay */
+            padding: 10px;
+            margin-bottom: 20px; /* Add some padding to the container */
+        }
+        .card {
+            margin: 15px 10px; /* Add horizontal spacing */
+            transition: transform 0.2s;
+            background-color: rgba(65, 65, 65, 0.9); /* Dark background for cards */
+            border-radius: 10px; /* Rounded corners */
+            display: flex; /* Use flexbox for the card */
+            margin-bottom: 10px;
+            flex-direction: column; /* Arrange children vertically */
+            height: 95%; /* Make cards take full height */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+        }
+        .movie-image {
+            height: 300px; /* Fixed height for image */
+            object-fit: cover; /* Cover the image */
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+        }
+        .card-body {
+            flex: 1; /* Make the body take the remaining space */
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Arrange title vertically */
+            justify-content: space-between; /* Align items at the start */
+            height: 100px; /* Fixed height for the card body */
+            overflow: hidden; /* Hide overflow text */
+        }
+        .card-title {
+            margin: 0; /* Remove default margin */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            overflow: hidden; /* Hide overflow text */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        .sorry-message {
+            font-size: 1.5rem;
+            color: #ff6b6b; /* Warning color */
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 2.5rem; /* Larger heading size */
+            margin-top: 20px; /* Spacing above the heading */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div> 
+    
+    <div class="container">
+        <h1 class="text-center my-4"><b>Recommendations...</b></h1>
+        <div class="row">
+            {% if titles and images %}
+                {% for title, image in titles|zip(images) %}
+                    <div class="col-md-3">
+                        <div class="card mb-4"> 
+                            <a href="{{ url_for('movie_details', name=title) }}">
+                                <img src="{{ image }}" alt="{{ title }}" class="card-img-top movie-image">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p class="sorry-message">Uh-oh! 🎬 We dug through the popcorn but couldn’t find any matches for you!</p>
+                    <p>Maybe the movies you’re looking for are on vacation... or hiding in the sequel! 🤷‍♀️</p>
+                    <p>Try adjusting your filters, or ask the movie gods for guidance and try again! 🍿</p>
+                    <img src="https://media.giphy.com/media/3o85xk5OZfQC4oDTj2/giphy.gif" alt="No Results" class="img-fluid mt-4" style="max-width: 400px;">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(30, 30, 30); /* Dark background for body */
+            color: #f2f4f7; /* Light text color */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+        .background-image {
+            position: fixed; /* Fix background image */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQU247dqn9_X42p8rRBMYptceaWn9a9QaHR6roilhJtBnHhLQ09XrwDEc8Rt7kGWAis-JnxyqMbgJ__8FPsmSSOmF8eSFNY-QUgQS9su_JWkaR6oTiNSQ9JhZEr252l5CjvCldpIDDdUmQWA4T_IzgZj6WQw.jpg?r=46a');
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            opacity: 0.2; /* Translucent background */
+            z-index: 0; /* Ensure it's behind the content */
+        }
+        .container {
+            position: relative; /* Position relative for the container */
+            z-index: 1; /* Ensure it's above the overlay */
+            padding: 10px;
+            margin-bottom: 20px; /* Add some padding to the container */
+        }
+        .card {
+            margin: 15px 10px; /* Add horizontal spacing */
+            transition: transform 0.2s;
+            background-color: rgba(65, 65, 65, 0.9); /* Dark background for cards */
+            border-radius: 10px; /* Rounded corners */
+            display: flex; /* Use flexbox for the card */
+            margin-bottom: 10px;
+            flex-direction: column; /* Arrange children vertically */
+            height: 95%; /* Make cards take full height */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+        }
+        .movie-image {
+            height: 300px; /* Fixed height for image */
+            object-fit: cover; /* Cover the image */
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+        }
+        .card-body {
+            flex: 1; /* Make the body take the remaining space */
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Arrange title vertically */
+            justify-content: space-between; /* Align items at the start */
+            height: 100px; /* Fixed height for the card body */
+            overflow: hidden; /* Hide overflow text */
+        }
+        .card-title {
+            margin: 0; /* Remove default margin */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            overflow: hidden; /* Hide overflow text */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        .sorry-message {
+            font-size: 1.5rem;
+            color: #ff6b6b; /* Warning color */
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 2.5rem; /* Larger heading size */
+            margin-top: 20px; /* Spacing above the heading */
+        }
+        .movie-description {
+            margin-bottom: 10px; /* Space below description */
+            color: #f2f4f7c1; /* Description text color */
+        }
+        .btn-back {
+            position: absolute; /* Absolute positioning */
+            top: 10px; /* Distance from the top */
+            right: 10px; /* Distance from the right */
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            color: white; /* White color for the cross */
+            font-size: 24px; /* Font size for the cross */
+            cursor: pointer;
+            padding: 5px; /* Add some padding for the clickable area */
+            transition: color 0.3s; /* Transition for hover effect */
+        }
+        .btn-back:hover {
+            color: #d92f2f; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div> <!-- Background Image -->
+    
+    <button class="btn-back" onclick="window.history.back()"><i class="fas fa-times"></i></button> <!-- Cross button -->
+
+    <div class="container">
+        <h1 class="text-center my-4"><b>Recommendations...</b></h1>
+        <div class="row">
+            {% if titles and images %}
+                {% for title, image in titles|zip(images) %}
+                    <div class="col-md-3">
+                        <div class="card mb-4"> <!-- Added mb-4 for bottom margin -->
+                            <a href="{{ url_for('movie_details', name=title) }}">
+                                <img src="{{ image }}" alt="{{ title }}" class="card-img-top movie-image">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p class="sorry-message">Uh-oh! 🎬 We dug through the popcorn but couldn’t find any matches for you!</p>
+                    <p>Maybe the movies you’re looking for are on vacation... or hiding in the sequel! 🤷‍♀️</p>
+                    <p>Try adjusting your filters, or ask the movie gods for guidance and try again! 🍿</p>
+                    <img src="https://media.giphy.com/media/3o85xk5OZfQC4oDTj2/giphy.gif" alt="No Results" class="img-fluid mt-4" style="max-width: 400px;">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

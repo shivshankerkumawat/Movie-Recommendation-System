@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #252627;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            position: relative; /* Position relative for the background */
+            overflow: hidden; /* Prevent overflow */
+        }
+        .background-image {
+            position: absolute; /* Fix background image */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQU247dqn9_X42p8rRBMYptceaWn9a9QaHR6roilhJtBnHhLQ09XrwDEc8Rt7kGWAis-JnxyqMbgJ__8FPsmSSOmF8eSFNY-QUgQS9su_JWkaR6oTiNSQ9JhZEr252l5CjvCldpIDDdUmQWA4T_IzgZj6WQw.jpg?r=46a'); /* Use the movie image */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            opacity: 0.2; /* Translucent background */
+            z-index: 0; /* Ensure it's behind the content */
+        }
+        .movie-container {
+            display: flex; /* Use flexbox for layout */
+            opacity: 0.9;
+            align-items: flex-start; /* Align items to the start */
+            z-index: 1; /* Ensure it's above the overlay */
+            background: rgb(65, 65, 65); /* Dark background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+            padding: 20px; /* Padding for card */
+            width: 66%; /* Cover 2/3 of the page */
+            max-width: 800px; /* Set a maximum width */
+            position: relative; /* Position relative for the button */
+        }
+        .movie-image {
+            width: 240px; /* Fixed width for the image */
+            height: 360px; /* Fixed height for the image */
+            opacity: 1;
+            margin-right: 20px; /* Space between image and card */
+            border-radius: 10px; /* Rounded corners for image */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .movie-details h2 {
+            color: #f2f4f7bf; /* Title color */
+            font-size: 30px; /* Adjust font size */
+            margin-bottom: 10px;
+        }
+        .movie-details span {
+            color: #f2f4f7b9; /* Set text color for details to white */
+        }
+        .movie-description {
+            margin-bottom: 10px; /* Space below description */
+            color: #f2f4f7c1; /* Description text color */
+        }
+        .btn-back {
+            position: absolute; /* Absolute positioning */
+            top: 10px; /* Distance from the top */
+            right: 10px; /* Distance from the right */
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            color: white; /* White color for the cross */
+            font-size: 24px; /* Font size for the cross */
+            cursor: pointer;
+            padding: 5px; /* Add some padding for the clickable area */
+            transition: color 0.3s; /* Transition for hover effect */
+        }
+        .btn-back:hover {
+            color: #ff7f7f; /* Change color on hover */
+        }
+        .bold {
+            font-weight: bold; /* Make text bold */
+            color: #f2f4f7; /* Make bold text white */
+        }
+        .movie-link {
+            text-decoration: none; /* Remove underline */
+            color: #f5f6fa; /* Link color */
+        }
+        .movie-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div> 
+    
+    <div class="movie-container">
+        <button class="btn-back" onclick="window.history.back()"><i class="fas fa-times"></i></button> <!-- Cross button -->
+        <img src="{{ details[5] }}" alt="{{ details[0] }}" class="movie-image">
+        <div class="movie-details">
+            <div class="movie-description">
+                <h2><a href="{{ details[6] }}" class="movie-link">{{ details[0] }}</a></h2>
+                <p>{{ details[7] }}</p>
+            </div>
+            <span><span class="bold">Genre:</span> {{ details[1] }}</span><br>
+            <span><span class="bold">IMDb Score:</span> {{ details[8] }}</span><br>
+            <span><span class="bold">Viewers Rating:</span> {{ details[4] }}</span><br>
+            <span><span class="bold">Director(s):</span> {{ details[9] }}</span><br>
+            <span><span class="bold">Writer(s):</span> {{ details[10] }}</span><br>
+            <span><span class="bold">Acting Cast:</span> {{ details[3] }}</span><br>
+            <span><span class="bold">Release Date:</span> {{ details[11] }}</span><br>
+            <span><span class="bold">Run Time:</span> {{ details[12] }}</span><br>
+            <span><span class="bold">Tags:</span> {{ details[2] }}</span><br>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
